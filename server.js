@@ -16,11 +16,17 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/index.html'))
 })
 
-app.get('/notes', (req, res) => {
+app.get('/api/notes', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/notes.html'))
 })
 
+app.post('/api/notes', (req, res) => {
+    req.
+})
 
+app.delete('api/notes', (req, res) => {
+
+})
 
 //route for notes html page
 
