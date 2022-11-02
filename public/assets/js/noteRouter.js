@@ -3,10 +3,11 @@ const express = require('express');
 const apiRouter = express.Router();
 const { networkInterfaces } = require('os');
 const path = require('path');
+const noteRouter = require('express').Router()
 
 const notes = [];
 
-apiRouter.get('/notes', (req, res) => {
+noteRouter.get('/notes', (req, res) => {
     const newNote = getElementbyId(req.params.id, 'notes')
     console.log(newNote);
     if (newNote) {
@@ -22,7 +23,7 @@ apiRouter.get('/notes', (req, res) => {
     }
 });
 
-apiRouter.put('/notes', (req, res) => {
+noteRouter.put('/notes', (req, res) => {
     const noteIndex = getIndexbyId(req.params.id, notes);
     if (noteIndex !== -1) {
         updateElement(req.params.id, req.query, notes);
@@ -30,9 +31,9 @@ apiRouter.put('/notes', (req, res) => {
     } else {
         res.status(404).send();
     }
-})
+});
 
-apiRouter.post('/notes', (req, res) => {
+noteRouter.post('/notes', (req, res) => {
     const postNote = createElement('notes', req.query);
     if(postNote) {
         notes.push(postNote);
@@ -40,6 +41,6 @@ apiRouter.post('/notes', (req, res) => {
     } else {
         res.status(401).send();
     }
-})
+});
 
 module.exports = noteRouter
