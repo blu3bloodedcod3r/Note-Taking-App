@@ -14,9 +14,15 @@
   ###  * [Tests](#test)
   ###  * [Questions](#questions)
 
+  ![Screenshot of video snippet]<img src='readmescreenshotch11' href='https://bootcampspot.instructuremedia.com/embed/1f68ffb4-3bb1-4e3b-b29d-20e38879d41a'>
+
   ## Installation:
   ### You must install the following for this app to function:
-  ### undefined
+
+  -Nodemon
+  -mySQL
+  -Express
+ 
   
   ## Contributors:
   ### Received help from several videos explaining express and tutoring from TA's/ Instructor and AskBCS.
