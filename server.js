@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path')
-//const apiRouter = require('./public/assets/js/apiRouter')
+const apiRouter = require('./public/assets/js/apiRouter')
+const noteRouter = require('./public/assets/js/noteRouter')
 
 const app = express();
 
@@ -11,27 +12,17 @@ app.use(express.urlencoded({ extended: true}))
 app.use(express.json)
 app.use(express.static('public'))
 
+app.use('/api', apiRouter)
+app.get('/', noteRouter)
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '/public/index.html'))
-})
-
-app.get('/api/notes', (req, res) => {
+app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/notes.html'))
-})
+});
 
-app.post('/api/notes', (req, res) => {
-    req.
-})
-
-app.delete('api/notes', (req, res) => {
-
-})
-
-//route for notes html page
-
-//route for homepage html
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname), 'public/index.html')
+});
 
 app.listen(PORT, () =>{
-    console.log('Working!! http://localhost:3001')
+    console.log(`Working!! http://localhost:${PORT}`)
 })

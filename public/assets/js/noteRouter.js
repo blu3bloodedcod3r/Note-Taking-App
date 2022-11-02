@@ -1,21 +1,28 @@
 const { response } = require('express');
-const express = require('express')
+const express = require('express');
+const apiRouter = express.Router();
+const { networkInterfaces } = require('os');
 const path = require('path');
 
 const notes = [];
 
-noteRouter.get('/api/notes', (req, res) => {
+apiRouter.get('/notes', (req, res) => {
     const newNote = getElementbyId(req.params.id, 'notes')
     console.log(newNote);
     if (newNote) {
-        console.log('Got your note!');
-        res.status(201).send('Got your note!')
+        notes.push(newNote);
+        res.status(201).send('Got your note!');
+        fs.writeFileSync(
+            path.join(__dirname, '../db/db.json'),
+            JSON.stringify({ notes }, null, 2)
+        )
+        return newNote;
     } else {
         res.status(401).send();
     }
 });
 
-noteRoute.put('api/notes', (req, res) => {
+apiRouter.put('/notes', (req, res) => {
     const noteIndex = getIndexbyId(req.params.id, notes);
     if (noteIndex !== -1) {
         updateElement(req.params.id, req.query, notes);
@@ -25,7 +32,7 @@ noteRoute.put('api/notes', (req, res) => {
     }
 })
 
-noteRouter.post('api/notes', (req, res) => {
+apiRouter.post('/notes', (req, res) => {
     const postNote = createElement('notes', req.query);
     if(postNote) {
         notes.push(postNote);
