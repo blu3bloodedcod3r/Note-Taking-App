@@ -14,7 +14,7 @@
   ###  * [Tests](#test)
   ###  * [Questions](#questions)
 
-  ![Screenshot of video snippet]<a href='https://bootcampspot.instructuremedia.com/embed/1f68ffb4-3bb1-4e3b-b29d-20e38879d41a' rel='nofollow'><img src='readmescreenshotch11' width='50%' style='max-width: 100%'></a>
+  ![Screenshot of video snippet][<img src='readmescreenshotch11'href='https://bootcampspot.instructuremedia.com/embed/1f68ffb4-3bb1-4e3b-b29d-20e38879d41a' width='50%' style='max-width: 100%'>](https://bootcampspot.instructuremedia.com/embed/1f68ffb4-3bb1-4e3b-b29d-20e38879d41a)
 
   ## Installation:
   ### You must install the following for this app to function:
